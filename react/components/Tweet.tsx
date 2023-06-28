@@ -32,7 +32,7 @@ export default function Tweet(props: TweetProps) {
   const { tweets } = useTweets()
   useAccount({
     onSuccess(data) {
-      if (data.address && !address) {
+      if (data?.address && !address) {
         setAddress(data.address)
       }
     },

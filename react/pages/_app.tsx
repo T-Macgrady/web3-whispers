@@ -10,7 +10,7 @@ import { AppProps } from "next/app"
 import Head from "next/head"
 import Script from "next/script"
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi"
-import { infuraProvider } from "wagmi/providers/infura"
+// import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
 import { AppProvider } from "../components/AppProvider"
 import "../styles/globals.css"
@@ -18,15 +18,15 @@ import "../styles/globals.css"
 const { chains, provider } = configureChains(
   [
     chain.hardhat,
-    chain.goerli,
-    chain.ropsten,
+    // chain.goerli,
+    // chain.ropsten,
     // chain.rinkeby,
     // chain.kovan,
     // chain.optimismKovan,
     // chain.optimism,
   ], // Hardhat must come first due to provider issue, see: https://github.com/tmm/wagmi/discussions/425
   [
-    infuraProvider({ infuraId: process.env.REACT_APP_INFURA_ID }),
+    // infuraProvider({ infuraId: process.env.REACT_APP_INFURA_ID }),
     publicProvider(),
   ]
 )

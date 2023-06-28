@@ -18,7 +18,7 @@ export default function Editor() {
   const [price, setPrice] = useState("")
   useAccount({
     onSuccess(data) {
-      if (data.address && !address) {
+      if (data?.address && !address) {
         setAddress(data.address)
       }
     },
@@ -87,7 +87,7 @@ export default function Editor() {
     try {
       newTweet({
         args: [message.toString(), 0, 0],
-        overrides: { value: ethers.utils.parseEther(price) },
+        overrides: { value: 1 },
       })
     } catch (error) {
       toast.error("Transaction failed")

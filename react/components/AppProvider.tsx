@@ -19,7 +19,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [confetti, setConfetti] = useState(false)
   useAccount({
     onSuccess(data) {
-      if (data.address && !address) {
+      if (data?.address && !address) {
         setAddress(data.address)
       }
     },

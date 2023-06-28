@@ -26,7 +26,7 @@ export default function Layout(props: LayoutProps) {
   const [isOwner, setIsOwner] = useState(false)
   useAccount({
     onSuccess(data) {
-      if (data.address && !address) {
+      if (data?.address && !address) {
         setAddress(data.address)
         console.debug("Found authorized account: ", data.address)
 
