@@ -20,6 +20,41 @@ Built with the following technologies:
 
 - [Vercel](https://vercel.com/): Web hosting and automatic deployments
 
+## [SPEC](./spec/)
+
+Use AI to generate spec.md for main file
+```
+smol-dev-js setup
+smol-dev-js code2spec
+
+
+[spec](./spec/)
+  ├─hardhat
+  │  └─contracts
+  │          Twitt3r.sol.md
+  │
+  └─react
+      ├─components
+      │      Address.tsx.md
+      │      AppProvider.tsx.md
+      │      Avatar.tsx.md
+      │      Controls.tsx.md
+      │      EditModal.tsx.md
+      │      Editor.tsx.md
+      │      Layout.tsx.md
+      │      Nav.tsx.md
+      │      ReplyModal.tsx.md
+      │      Sidebar.tsx.md
+      │      Tweet.tsx.md
+      │      TweetList.tsx.md
+      │      TweetModal.tsx.md
+      │
+      └─pages
+              404.tsx.md
+              index.tsx.md
+              [address].tsx.md
+  ```
+
 ## Installation
 
 ### Prereqs
