@@ -2,6 +2,16 @@
 
 A web3 decentralized social platform built on the Ethereum blockchain
 
+
+## Features
+
+- Tweeting: Users can create, edit, and delete tweets.
+- Contract Management: Owners can update settings, pause and unpause the contract.
+- Lottery System: Tweeting offers a chance to win a bet.
+- Tweet Clearing: Owners can clear all tweets in extreme cases.
+- Information & Logging: The contract's status can be checked and key events are logged.
+- Funding: The contract can be funded for bet payouts, with a withdrawal option for owners.
+
 ## Tech Stack
 
 Built with the following technologies:
@@ -19,6 +29,13 @@ Built with the following technologies:
   - [openzeppelin](https://www.openzeppelin.com/): an framework for building secure and auditable smart contracts
 
 - [Vercel](https://vercel.com/): Web hosting and automatic deployments
+
+## [DEMO](https://i.imgur.com/WnSkTgw.gif)
+
+<img src="https://i.imgur.com/H5NiK4D.jpg" />
+
+### [GIF](https://i.imgur.com/WnSkTgw.gif)
+<img src="https://i.imgur.com/WnSkTgw.gif" />
 
 ## [SPEC](./spec/)
 

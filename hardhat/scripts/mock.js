@@ -31,7 +31,7 @@ const main = async () => {
     0, // Odds
     hre.ethers.utils.parseEther("0.001"), // Price
     hre.ethers.utils.parseEther("0.1"), // Jackpot
-    { value: hre.ethers.utils.parseEther("0.2") } // Initial contract balance, for paying out awards
+    { value: hre.ethers.utils.parseEther("0.5") } // Initial contract balance, for paying out awards
   )
 
   await twitt3r.deployed()

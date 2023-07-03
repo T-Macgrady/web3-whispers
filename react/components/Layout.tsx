@@ -13,7 +13,7 @@ export default function Layout(props: LayoutProps) {
   const { children, ...pageMeta } = props
   const router = useRouter()
   const meta = {
-    title: "Twitt3r - What's happening (in web3)",
+    title: "tmac | Twitt3r",
     description:
       "Twitter, but make it web3.  A decentralized Twitter clone built on the Ethereum blockchain.",
     image: "https://twitt3r.xyz/images/twitt3r.png",

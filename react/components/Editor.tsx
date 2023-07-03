@@ -132,7 +132,7 @@ export default function Editor() {
           rows={1}
           value={message}
           maxLength={280}
-          placeholder="What's happening? (in web3)"
+          placeholder="tmac | Twitt3r"
           onChange={(e) => setMessage(e.target.value)}
           onInput={(e) => {
             ;(e.target as HTMLInputElement).style.height = "auto"

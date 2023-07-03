@@ -38,6 +38,12 @@ module.exports = {
       url: process.env.OPTIMISM_INFURA_URL,
       accounts: [process.env.PRIVATE_KEY],
     },
+    hardhat: {
+      accounts: {
+        mnemonic: 'test test test test test test test test test test test junk',
+        initialBaseBalance: 5000000000000000000000 // 初始金额更改为5000个ETH
+      }
+    }
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY
