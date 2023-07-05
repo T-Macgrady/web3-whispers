@@ -19,12 +19,14 @@ const main = async () => {
   const txn = await contract.deploy(
     10, // Odds
     hre.ethers.utils.parseEther("0.001"), // Price
-    hre.ethers.utils.parseEther("0.1"), // Jackpot
-    { value: hre.ethers.utils.parseEther("0.2") } // Initial contract balance, for paying out awards
+    hre.ethers.utils.parseEther("0.002"), // Jackpot
+    { value: hre.ethers.utils.parseEther("0.003") } // Initial contract balance, for paying out awards
   )
 
   await txn.deployed()
   console.log("\nContract address:", txn.address)
+  const receipt = await txn.deployTransaction.wait(); // 注意这里改为了 "deployTransaction.wait"
+  console.log(`Gas used: ${receipt.gasUsed.toString()}`);
 }
 
 /**
