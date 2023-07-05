@@ -1,0 +1,4 @@
+[build]
+  base = "react"
+  command = "yarn install && yarn build && yarn next export"
+  publish = "out"
