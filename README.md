@@ -30,12 +30,13 @@ Built with the following technologies:
 
 - [Vercel](https://vercel.com/): Web hosting and automatic deployments
 
-## [DEMO](https://i.imgur.com/WnSkTgw.gif)
+## [DEMO](https://tmac-twitt3r.netlify.app/)
 
-<img src="https://i.imgur.com/H5NiK4D.jpg" />
+[https://tmac-twitt3r.netlify.app](https://tmac-twitt3r.netlify.app/)
 
-### [GIF](https://i.imgur.com/WnSkTgw.gif)
 <img src="https://i.imgur.com/WnSkTgw.gif" />
+
+[https://i.imgur.com/WnSkTgw.gif](https://i.imgur.com/WnSkTgw.gif)
 
 ## [SPEC](./spec/)
 
