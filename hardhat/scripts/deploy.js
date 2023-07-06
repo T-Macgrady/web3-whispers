@@ -18,9 +18,9 @@ const main = async () => {
   const contract = await hre.ethers.getContractFactory("Twitt3r")
   const txn = await contract.deploy(
     10, // Odds
-    hre.ethers.utils.parseEther("0.001"), // Price
-    hre.ethers.utils.parseEther("0.002"), // Jackpot
-    { value: hre.ethers.utils.parseEther("0.003") } // Initial contract balance, for paying out awards
+    hre.ethers.utils.parseEther("0.0001"), // Price
+    hre.ethers.utils.parseEther("0.0002"), // Jackpot
+    { value: hre.ethers.utils.parseEther("0.005") } // Initial contract balance, for paying out awards
   )
 
   await txn.deployed()

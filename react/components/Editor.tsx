@@ -87,7 +87,7 @@ export default function Editor() {
     try {
       newTweet({
         args: [message.toString(), 0, 0],
-        overrides: { value: 1 },
+        overrides: { value: ethers.utils.parseEther("0.0002") },
       })
     } catch (error) {
       toast.error("Transaction failed")

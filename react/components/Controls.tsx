@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import toast from "react-hot-toast"
 import {
   useContractRead,
@@ -12,6 +12,7 @@ export default function Controls() {
   const [price, setPrice] = useState("")
   const [odds, setOdds] = useState("")
   const [jackpot, setJackpot] = useState("")
+  const [deposit, setDeposit] = useState("")
 
   /**
    * Contract hooks
@@ -182,6 +183,62 @@ export default function Controls() {
   )
 
   /**
+   * Balance
+   * @notice get balance of contract
+   * @returns {void}
+   */
+  const { data: balanceData, refetch: refetchBalance } = useContractRead(
+    {
+      addressOrName: contractAddress,
+      contractInterface: contractABI,
+    },
+    "getBalance"
+  )
+  const balance = useMemo(
+    () => balanceData && ethers.utils.formatEther(balanceData),
+    [balanceData]
+  )
+
+  /**
+   * Deposit
+   * @notice deposit funds to contract
+   * @param {string} deposit - amount to deposit
+   * @returns {void}
+   */
+  const { write: sendDeposit } = useContractWrite(
+    {
+      addressOrName: contractAddress,
+      contractInterface: contractABI,
+    },
+    "deposit",
+    {
+      onSuccess(data) {
+        refetchBalance()
+          .then((value) => {
+            console.debug("Retrieved balance --", value.data)
+          })
+          .catch((err) => {
+            console.error("Retrieved balance error --", err)
+          })
+        toast.success("Set deposit")
+        console.debug("Set deposit --", data.hash)
+      },
+      onError(error) {
+        if (error instanceof UserRejectedRequestError) {
+          toast.error("User rejected transaction")
+          console.error("User rejected transaction")
+        } else if (error.message.includes("Ownable: caller is not the owner")) {
+          toast.error("You are not the owner!")
+          console.error("Unauthorized --", error)
+        } else {
+          toast.error("Transaction failed")
+          console.error("Transaction failed --", error)
+        }
+      },
+    }
+  )
+
+  /**
    * Update the setting parameters (price, odds, jackpot), only for the owner
    * @param {Object} event
    */
@@ -295,6 +352,45 @@ export default function Controls() {
             onClick={clearTweets}
           >
             Clear All Tw33ts
+          </button>
+        </div>
+        <div className="mt-1 flex">
+          <label>balance:</label>
+          <input
+            id="balance"
+            type="number"
+            disabled
+            step="any"
+            value={balance}
+            placeholder="balance in Ether"
+            className="w-full bg-gray-100 text-right"
+            required
+          />
+        </div>
+        <div className="mt-1 flex">
+          <label>Deposit:</label>
+          <input
+            id="deposit"
+            type="number"
+            step="any"
+            value={deposit}
+            onChange={(e) => setDeposit(e.target.value)}
+            placeholder="Deposit in Ether"
+            className="w-full bg-gray-100 text-right"
+          />
+          <span>Ξ</span>
+        </div>
+        <div className="mt-6 flex flex-col">
+          <button
+            className="button mx-6 mt-3"
+            type="button"
+            onClick={() => {
+              const depositInWei = ethers.utils.parseEther(deposit)
+
+              sendDeposit({ overrides: { value: depositInWei } })
+            }}
+          >
+            Deposit
           </button>
         </div>
       </form>
